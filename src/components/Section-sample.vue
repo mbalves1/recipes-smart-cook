@@ -43,7 +43,7 @@ export default {
 .card {
   border: 1px solid #e4e4e4;
   box-shadow: 1px 0px 10px #e4e4e4;
-  height: 12rem;
+  // height: 12rem;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -61,6 +61,7 @@ export default {
   line-height: 2rem;
   padding-bottom: 2rem;
   padding-top: 2rem;
+  line-height: 0.8;
 }
 
 @media (min-width: 1200px) {
@@ -69,6 +70,10 @@ export default {
     max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .title-header {
+   line-height: 0.8;
   }
 }
 
