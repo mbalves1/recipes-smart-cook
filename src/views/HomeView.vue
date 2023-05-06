@@ -6,10 +6,11 @@
           <i class="fa fa-cutlery" aria-hidden="true"></i>cook<span class="logo-smart">smart.</span></span>
         <nav>
           <ul>
-            <li>Search</li>
+            <li @click="scrollToSection">Search</li>
           </ul>
         </nav>
-        <span>Contato</span>
+        <span style="cursor: pointer" @click="dialog = !dialog" v-if="!dialog">Contato</span>
+        <span style="cursor: pointer" @click="dialog = !dialog" v-if="dialog">email@email</span>
         <!-- menu -->
       </nav>
     </header>
@@ -19,7 +20,7 @@
     <div class="divider-1"></div>
     <section-sample></section-sample>
     <div class="divider-2"></div>
-    <section-search></section-search>
+    <section-search id="search-section" ref="searchSection"></section-search>
     <footer-view></footer-view>
   </div>
 </template>
@@ -40,6 +41,16 @@ export default {
     SectionRecipes,
     SectionSearch,
     FooterView
+  },
+  data() {
+    return {
+      dialog: false
+    }
+  },
+  methods: {
+    scrollToSection() {
+      this.$vuetify.goTo(this.$refs.searchSection, { duration: 500, offset: -64 });
+    }
   }
 }
 </script>
@@ -88,6 +99,7 @@ nav {
     display: flex;
     li {
       padding-left: 2.05rem;
+      cursor: pointer;
     }
   }
 }

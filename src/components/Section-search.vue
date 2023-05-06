@@ -22,6 +22,7 @@
             multiple
             color="orange"
             class="combobox"
+            append-icon="mdi-magnify"
             @keyup.enter="filterByngredients"
           ></v-combobox>
         </span>
@@ -159,7 +160,7 @@ export default {
     filterByngredients() {
       let filteredRecipes = [];
       this.basket.forEach(recipe => {
-        if (this.select.some(ingrediente => recipe.ingredientes.includes(ingrediente))) {
+        if (this.select.some(ingrediente => recipe.ingredientes.includes(ingrediente.toLowerCase()))) {
           filteredRecipes.push(recipe);
         }
       });
